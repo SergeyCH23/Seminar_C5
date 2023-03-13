@@ -1,0 +1,117 @@
+                //   Колькулятор
+
+// int Calculate(int a, int b, char sign)
+// {
+//     if (sign == '+') // char '', string ""
+//     {
+//         return a + b; // Сумма двух чисел
+//     }
+//     else if (sign == '-') // char '', string
+//     {
+//         return a - b;
+//     }
+//     else
+//     {
+//         return 0;
+//     }
+// }
+
+// Console.WriteLine(Calculate(10, 20, '+'));
+// Console.WriteLine(Calculate(10, 20, '-'));
+// Console.WriteLine(Calculate(10, 20, '*'));
+
+
+// |Задача 39: Задача 39: Напишите программу, которая перевернёт одномерный массив (последний элемент будет на первом месте, а первый - на последнем и т.д.)
+// [1 2 3 4 5] -> [5 4 3 2 1]
+// [6 7 3 6] -> [6 3 7 6]Напишите программу, которая перевернёт одномерный массив (последний элемент будет на первом месте, а первый - на последнем и т.д.)
+// [1 2 3 4 5] -> [5 4 3 2 1]
+// [6 7 3 6] -> [6 3 7 6]|
+
+
+// int[] GetArray(int size, int minrandom, int maxrandom)
+// {
+//     int [] array = new int[size];
+//     for (int i = 0; i < size ; i++)
+//     {
+//         array[i] = new Random().Next(minrandom, maxrandom + 1);
+//     }
+//     return array;
+// }
+
+// int[] resultArray = GetArray(5, -10, 10);
+// Console.WriteLine($"Массив [{String.Join(";", resultArray)}]");
+
+
+// |Задача 39: Напишите программу, которая перевернёт одномерный массив (последний элемент будет на первом месте, а первый - на последнем и т.д.)
+// [1 2 3 4 5] -> [5 4 3 2 1]
+// [6 7 3 6] -> [6 3 7 6]    Используя прошлый массив|
+
+// 1 способ.
+// int[] resultCopy = CopyArray(resultArray);
+// Console.WriteLine($"Перевернутый массив: [ {String.Join("; ", resultCopy)} ]");
+// // 1 способ. Создать новый массив (копию) и помещать туда элементы с конца исходного массива
+// int[] CopyArray(int[] inputArray)
+// {
+//     int[] copyArray = new int[inputArray.Length]; // Размер копии = размер оригинала
+//     // inputArray.Length - 1 = индекс последнего элемента в исходном массиве
+//     for (int i = 0, j = inputArray.Length - 1; i < inputArray.Length; i++, j--)
+//     {
+//         copyArray[i] = inputArray[j]; 
+        // inputArray.Length - 1 = 5 - 1, j = 4, i = 0
+        // copyArray[0] = inputArray[4], i++, j--
+        // copyArray[1] = inputArray[3], i++, j--
+        // copyArray[2] = inputArray[2]
+//     }
+//     return copyArray;
+// }
+
+// 2 способ.
+
+// void ReverseArray(int [] array)
+// {
+//     for (int i = 0, j = array.Length - 1; i < array.Length / 2; i++, j--)
+//     {
+//         int temp = array[i]; // a = {10,20,30,40,50} => temp = a[0] => temp = 10
+//         array[i] = array[j]; // a[0] = a[array.Length - 1]  => a[0] = a[5-1]
+//         // a[0] = a[4] , a[0] = 50, a = {50,20,30,40,50(здесь должно быть 10)}
+//         array[j] = temp; // a[4] = temp, a = {50,20,30,40,temp), a = {50,20,30,40,10)
+//     }
+// }
+// ReverseArray(resultArray); // Мы берем массив resultArray и В НЕМ же меняем элементы местами
+// Console.WriteLine($"Перевернутый массив: [ {String.Join("; ", resultArray)} ]");
+
+
+//| Задача 40: Напишите программу, которая принимает на вход три числа и проверяет, может ли существовать треугольник с сторонами такой длины.
+// Теорема о неравенстве треугольника: каждая сторона треугольника меньше суммы двух других сторон.|
+
+// int firstSide = 7;
+// int secondSide = 4;
+// int thirdSide = 5;
+// // True - треугольник существует, False - НЕ СУЩЕСТВУЕТ
+// bool IsTriangle(int a, int b, int c) // a,b,c - стороны трегурльника
+// {
+//     return (a + b > c && a + c > b && b + c > a);
+// }
+// Console.Write($"{IsTriangle(firstSide, secondSide, thirdSide)}");
+
+
+// |Задача 44: Не используя рекурсию, выведите первые N чисел Фибоначчи. Первые два числа Фибоначчи: 0 и 1.
+// Если N = 5 -> 0 1 1 2 3
+// Если N = 3 -> 0 1 1
+// Если N = 7 -> 0 1 1 2 3 5 8|
+
+// int N = 20;
+
+// int firstValue = 0;
+// int secodValue = 1;
+
+// Console.Write(firstValue + " ");
+// Console.Write(secodValue + " ");
+
+// for (int i = 3; i <= N; i++)
+// {
+//     int nextValue = firstValue + secodValue;
+//     Console.Write(nextValue + " ");
+//     firstValue = secodValue;
+//     secodValue = nextValue;
+// }
